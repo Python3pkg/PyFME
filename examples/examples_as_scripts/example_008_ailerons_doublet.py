@@ -58,21 +58,21 @@ trimmed_ac, trimmed_sys, trimmed_env, results = steady_state_flight_trimmer(
     controls2trim=controls2trim, gamma=gamma0, turn_rate=turn_rate, verbose=1)
 
 print()
-print('delta_elev = ', "%8.4f" % np.rad2deg(results['delta_elevator']), 'deg')
-print('delta_aile = ', "%8.4f" % np.rad2deg(results['delta_aileron']), 'deg')
-print('delta_rud = ', "%8.4f" % np.rad2deg(results['delta_rudder']), 'deg')
-print('delta_t = ', "%8.4f" % results['delta_t'], '%', '\n')
-print('alpha = ', "%8.4f" % np.rad2deg(results['alpha']), 'deg')
-print('beta = ', "%8.4f" % np.rad2deg(results['beta']), 'deg', '\n')
-print('u = ', "%8.4f" % results['u'], 'm/s')
-print('v = ', "%8.4f" % results['v'], 'm/s')
-print('w = ', "%8.4f" % results['w'], 'm/s', '\n')
-print('psi = ', "%8.4f" % np.rad2deg(psi0), 'deg')
-print('theta = ', "%8.4f" % np.rad2deg(results['theta']), 'deg')
-print('phi = ', "%8.4f" % np.rad2deg(results['phi']), 'deg', '\n')
-print('p =', "%8.4f" % results['p'], 'rad/s')
-print('q =', "%8.4f" % results['q'], 'rad/s')
-print('r =', "%8.4f" % results['r'], 'rad/s')
+print(('delta_elev = ', "%8.4f" % np.rad2deg(results['delta_elevator']), 'deg'))
+print(('delta_aile = ', "%8.4f" % np.rad2deg(results['delta_aileron']), 'deg'))
+print(('delta_rud = ', "%8.4f" % np.rad2deg(results['delta_rudder']), 'deg'))
+print(('delta_t = ', "%8.4f" % results['delta_t'], '%', '\n'))
+print(('alpha = ', "%8.4f" % np.rad2deg(results['alpha']), 'deg'))
+print(('beta = ', "%8.4f" % np.rad2deg(results['beta']), 'deg', '\n'))
+print(('u = ', "%8.4f" % results['u'], 'm/s'))
+print(('v = ', "%8.4f" % results['v'], 'm/s'))
+print(('w = ', "%8.4f" % results['w'], 'm/s', '\n'))
+print(('psi = ', "%8.4f" % np.rad2deg(psi0), 'deg'))
+print(('theta = ', "%8.4f" % np.rad2deg(results['theta']), 'deg'))
+print(('phi = ', "%8.4f" % np.rad2deg(results['phi']), 'deg', '\n'))
+print(('p =', "%8.4f" % results['p'], 'rad/s'))
+print(('q =', "%8.4f" % results['q'], 'rad/s'))
+print(('r =', "%8.4f" % results['r'], 'rad/s'))
 
 my_simulation = BatchSimulation(trimmed_ac, trimmed_sys, trimmed_env)
 
@@ -82,7 +82,7 @@ time = np.linspace(0, tfin, N)
 initial_controls = trimmed_ac.controls
 
 controls = {}
-for control_name, control_value in initial_controls.items():
+for control_name, control_value in list(initial_controls.items()):
     controls[control_name] = np.ones_like(time) * control_value
 
 # Aileron doublet

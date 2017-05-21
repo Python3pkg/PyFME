@@ -155,7 +155,7 @@ class BatchSimulation(Simulation):
 
         """
         return {control: self.aircraft_controls[control][ii] for control in
-                self.aircraft_controls.keys()}
+                list(self.aircraft_controls.keys())}
 
     def run_simulation(self):
         """
@@ -225,7 +225,7 @@ class BatchSimulation(Simulation):
                          'M_yb': self.aircraft.total_moments[1],
                          'M_zb': self.aircraft.total_moments[2]
                          }
-        for par_name, par_values in self.par_dict.items():
+        for par_name, par_values in list(self.par_dict.items()):
             par_values[self._time_step] = self.PAR_KEYS[par_name]
 
 

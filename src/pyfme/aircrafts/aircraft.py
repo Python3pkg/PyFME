@@ -81,7 +81,7 @@ class Aircraft(object):
     def update(self, controls, system, environment):
 
         # If a control is not given, the previous value is assigned.
-        for control_name, control_value in controls.items():
+        for control_name, control_value in list(controls.items()):
             limits = self.control_limits[control_name]
             if limits[0] <= control_value <= limits[1]:
                 self.controls[control_name] = control_value
